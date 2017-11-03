@@ -1,0 +1,61 @@
+page-signup
+{
+   #signup-row{
+      background-color: #49273F;
+    }
+.signup {
+  form {
+    margin-bottom: 32px;
+    button {
+      margin-top: 20px;
+    }
+  
+   }
+
+    p {
+      font-size: 0.8em;
+      color: #d2d2d2;
+    }
+
+    ion-label {
+      margin-left: 5px;
+    }
+
+    ion-input {
+      padding: 5px;
+    }
+
+    .invalid {
+      border-bottom: 1px solid #FF6153;
+    }
+
+    .error-message .item-inner {
+      border-bottom: 0 !important;
+    }
+}
+ion-item{
+        color: #f7eef4 !important;
+        .item-inner{
+             border-bottom: 1px solid #391D30 !important;
+        }
+        ion-label{
+           color: #ffffff !important;
+            letter-spacing: 2px !important;
+        }
+    }
+.btnsignup{
+        background: aliceblue;
+        border-radius: 0;
+        padding: 7%;
+        width: 100%;
+        color: #000428;
+        font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-align: center;
+        text-transform: uppercase; 
+        margin-top: 7%;
+        transition: 0.25s ease;
+    }
+
+}

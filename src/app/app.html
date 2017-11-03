@@ -1,0 +1,40 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <!--<ion-title ></ion-title >
+            <ion-title *ngIf="driver == 'true'">Driver</ion-title >
+                  <ion-title *ngIf="hospital == 'true'">Hospital</ion-title >-->
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+        <ion-list-header style="margin-top: 45px;" *ngIf="police == 'true'">
+                Police
+            </ion-list-header>
+        <ion-list-header style="margin-top: 45px;" *ngIf="hospital == 'true'">
+                Hospital
+            </ion-list-header>
+             <ion-list-header style="margin-top: 45px;" *ngIf="driver == 'true'">
+                Driver
+            </ion-list-header>
+       
+            
+      <button ion-item detail-none menuClose (click)="openPage('LoginPage')" style="margin-top: 0px;" *ngIf="login == 'false'">
+                <ion-icon color="green" name='login' item-left></ion-icon>
+                <span class="menutext">Login</span>
+                <ion-icon color="arrow" name='arrow-dropright' item-right secondary></ion-icon>
+            </button>
+
+      <button ion-item detail-none menuClose (click)="logOut()" style="margin-top: 0px;" *ngIf="login == 'true'">
+                <ion-icon color="red" name='logOut' item-left></ion-icon>
+                <span class="menutext">LogOut</span>
+                <ion-icon color="arrow" name='arrow-dropright' item-right secondary></ion-icon>
+            </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

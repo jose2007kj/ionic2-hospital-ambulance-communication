@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar color="lgdarkpuce">
+    <ion-title>
+       SIGN_UP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="signup-row">
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+
+      <ion-label stacked>Email ID</ion-label>
+      <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+        placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+    </ion-item>
+       
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && (emailChanged || submitAttempt)">
+      <p>PLEASE_ENTER_VALID_EMAIL</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>PASSWORD</ion-label>
+      <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)"
+        placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+      <p>UR_PASSWORD_MORE_THAN_6</p>
+    </ion-item>
+        <ion-item>
+
+      <ion-label stacked>Name</ion-label>
+      <ion-input #name formControlName="name" type="text" (change)="elementChanged(name)"
+        placeholder="Your Name here"
+        [class.invalid]="!signupForm.controls.name.valid && (nameChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.name.valid  && (nameChanged || submitAttempt)">
+      <p>min length of name is 6</p>
+    </ion-item>
+    
+        <ion-item>
+
+      <ion-label stacked>Phone no</ion-label>
+      <ion-input #pno formControlName="pno" type="number" (change)="elementChanged(pno)"
+        placeholder="Your Phone no"
+        [class.invalid]="!signupForm.controls.pno.valid && (emailChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.pno.valid  && (pnoChanged || submitAttempt)">
+      <p>min length is 10</p>
+    </ion-item>
+    
+        <ion-item>
+
+      <ion-label stacked>Role</ion-label>
+        <ion-select #role formControlName="role" type="text" (change)="elementChanged(role)">
+       <ion-option>Driver</ion-option>
+      <ion-option>Hospital</ion-option>
+      <ion-option>Police</ion-option>
+    </ion-select>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.role.valid  && (roleChanged || submitAttempt)">
+      <p>select a role</p>
+    </ion-item>
+    
+
+
+
+
+    <button ion-button block type="submit" class="btnsignup">
+       CREATE_AN_ACCOUNT
+    </button>
+
+  </form>
+
+</ion-content>

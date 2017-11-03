@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="darkpuce">
+    <ion-title>
+      LOGIN
+    </ion-title>
+   <!-- <ion-buttons end>
+       <button ion-button block clear (click)="goToSignup()" >
+          {{ 'CREATE_A_NEW_ACCOUNT'   }}
+        </button>
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row id="header-row">
+    <ion-col id="header-col">
+      <form [formGroup]="loginForm" (submit)="loginUser()" novalidate padding>
+        <ion-item id="emailitem">
+             <ion-icon mini style="padding-left: 5px;" color="mail" name='mail' item-left></ion-icon>
+          <ion-label stacked>EMAIL</ion-label>
+          <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+            placeholder="Your email address"
+            [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
+          <p>PLEASE_ENTER_A_VALID_EMAIL.</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon mini style="padding-left: 5px;" color="lock" name='lock' item-left></ion-icon>
+          <ion-label stacked>PASSWORD</ion-label>
+          <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)"
+            placeholder="Your password"
+            [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+          <p>UR_PASSWORD_MORE_THAN_6</p>
+        </ion-item>
+        <button ion-button block type="submit" id="btnlogin">
+          LOGIN
+        </button>
+         
+          <!-- <button ion-button style="color:#8B7584" block clear (click)="goToResetPassword()">
+      I forgot my password
+    </button>-->
+      </form>
+      
+    </ion-col>
+  </ion-row>
+  <button ion-button block clear (click)="goToSignup()" >
+          CREATE_A_NEW_ACCOUNT
+        </button>
+    
+<!--
+  <ion-row id="footer-row">
+    <ion-col id="footer-col">
+       <img src="assets/img/logo.png" />
+    </ion-col>
+  </ion-row>-->
+</ion-content>

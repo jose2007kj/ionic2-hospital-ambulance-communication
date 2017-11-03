@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+     <button ion-button menuToggle>
+      <ion-icon name="menu" color="green"></ion-icon>
+    </button>
+
+    <ion-title>
+      Emergency App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <div *ngIf="police == 'true'">
+   Alerts for Police
+ </div>
+ <div *ngIf="driver == 'true'">
+   <p>Driver Page</p>
+   
+   <!--<ion-row><ion-col>
+      <button ion-button>
+      <ion-icon name="medkit" color="danger"></ion-icon>
+     Critical</button></ion-col><ion-col>
+    <button ion-button>
+      <ion-icon name="flash" color="danger"></ion-icon>
+     Major</button></ion-col></ion-row>
+         <ion-row><ion-col>
+     <button ion-button>
+      <ion-icon name="pulse" color="danger"></ion-icon>
+    Minor</button>
+</ion-col><ion-col>
+    <button ion-button>
+      <ion-icon name="flame" color="danger"></ion-icon>
+    Others</button></ion-col></ion-row>
+    <ion-row><button ion-button style="width: 100%;color: blueviolet">
+      <ion-icon name="arrow-dropright" color="green"></ion-icon>
+    Start</button></ion-row>-->
+    <form [formGroup]="patientForm" (submit)="start()" novalidate padding>
+    <ion-item>
+       <ion-label stacked>Hospital</ion-label>
+        <ion-select #hptl formControlName="hptl" type="text" (change)="elementChanged(hptl)">
+      <ion-option *ngFor="let item of locationTracker.hosp_list_home">{{item}}</ion-option>
+      
+    </ion-select>
+
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!patientForm.controls.hptl.valid  && (stateChanged || submitAttempt)">
+      <p>select patient state</p>
+    </ion-item>
+   
+    
+    <ion-item>
+       <ion-label stacked>State of Patient</ion-label>
+        <ion-select #state formControlName="state" type="text" (change)="elementChanged(state)">
+       <ion-option>Critical</ion-option>
+      <ion-option>Major</ion-option>
+      <ion-option>Minor</ion-option>
+      <ion-option>Other</ion-option>
+    </ion-select>
+     <ion-item class="error-message" *ngIf="!patientForm.controls.state.valid  && (stateChanged || submitAttempt)">
+      <p>select patient state</p>
+    </ion-item>
+   
+
+    </ion-item>
+      <button ion-button block type="submit" id="btnlogin">
+          Start
+        </button>
+      
+    </form>
+    
+   
+ </div>
+   <!--<div *ngIf="hospital=='true'" >-->
+<div [hidden]="hospital=='false'" style="height: 100%; width: 100%"  #map id="map"></div>
+ <!--</div>-->
+ 
+</ion-content>

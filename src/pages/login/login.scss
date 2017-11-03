@@ -1,0 +1,84 @@
+page-login {
+    ion-content{
+      margin-top: -1px;
+      background-color: #562e49;
+    }
+    #header-row{
+      background-color: #562e49;
+    }
+    #header-col {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+    #footer-row{
+      background-color: #562e49;
+      position: absolute;
+      bottom:0;
+    }
+    #footer-col{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        span{
+          color:#ccc;
+        }
+    }
+    #btnlogin{
+        background: aliceblue;
+        border-radius: 0;
+        padding: 7%;
+        width: 100%;
+        color: #000428;
+        font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-align: center;
+        text-transform: uppercase; 
+        margin-top: 7%;
+        transition: 0.25s ease;
+    }
+    .item {
+        background-color: rgba(255, 248, 220, 0.07) !important;
+    }
+    #emailitem{
+        .item-inner{
+                margin-left: 17px;
+        }
+    }
+    ion-item{
+        color: #9B8996 !important;
+        border-bottom: 1px solid #49273f !important;
+        //background: rgba(0,0,0,0.5) !important;
+        
+        .item-inner{
+            border: none !important;
+        }
+        ion-label{
+            color: #ffffff !important;
+            font-weight: 100 !important;
+            letter-spacing: 2px !important;
+        }
+        ion-input{
+            input{
+                font-weight: 200 !important;
+            }
+        }
+    }
+    ion-grid{
+        height: 100%;
+        justify-content: center;
+    }
+    .invalid {
+      border-bottom: 1px solid #FF6153;
+    }
+    .error-message .item-inner {
+      border-bottom: 0 !important;
+    }
+    img{
+        height: 9em;
+    }
+}
